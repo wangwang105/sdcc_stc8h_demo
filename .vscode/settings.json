@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "stc8h.h": "c",
+        "compiler.h": "c",
+        "main.h": "c",
+        "delay.h": "c",
+        "stc8h_it.h": "c"
+    },
+    // "C_Cpp.errorSquiggles": "Disabled"
+
+}
