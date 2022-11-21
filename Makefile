@@ -43,8 +43,6 @@ parameter = \
 #############################
 # sdcc Intermediate file
 ############################
-
-
 REL = $(patsubst src/%.c,$(BUILD_DIR)/%.rel ,$(wildcard src/*.c))
 
 # test:
@@ -54,14 +52,13 @@ REL = $(patsubst src/%.c,$(BUILD_DIR)/%.rel ,$(wildcard src/*.c))
 # $(BUILD_DIR)/delay.rel \
 # $(BUILD_DIR)/stc8h_it.rel 
 
-
 ############################
 # Hearder file path
 INCDIR= \
 -I inc
 # -I UART 
 # -I MCP2515
-
+#####################################################
 $(BUILD_DIR)/$(TARGET).bin : $(BUILD_DIR)/$(TARGET).hex
 		$(BIN)  $^ $@
 
@@ -73,7 +70,7 @@ $(BUILD_DIR)/main.ihx : $(REL)
 
 #########################################################
 # 需要自行添加sdcc编译语句
-
+########################################################
 $(BUILD_DIR)/delay.rel : src/delay.c | $(BUILD_DIR)
 		$(CC) $(parameter)  -c $^ \
 		$(INCDIR) -o "$@"
@@ -89,8 +86,8 @@ $(BUILD_DIR)/main.rel : src/main.c | $(BUILD_DIR)
 $(BUILD_DIR):
 		mkdir $(BUILD_DIR)
 #########################################################
-
-
+# clear build file
+########################################################
 .PHONY: clean cleanall
 clean:
 	$(RM) \
