@@ -40,8 +40,8 @@ parameter = \
 
 REL = $(patsubst src/%.c,$(BUILD_DIR)/%.rel ,$(wildcard src/*.c))
 
-test:
-	@echo $(REL)
+# test:
+# 	@echo $(REL)
 # REL = \
 # $(BUILD_DIR)/main.rel \
 # $(BUILD_DIR)/delay.rel \
