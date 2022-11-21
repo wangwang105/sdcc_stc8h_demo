@@ -495,9 +495,9 @@ _P77	=	0x00ff
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Delaynms'
 ;------------------------------------------------------------
-;i                         Allocated to registers 
+;ms                        Allocated to registers 
 ;------------------------------------------------------------
-;	src/delay.c:3: void Delaynms(uint32_t i)
+;	src/delay.c:8: void Delaynms(uint32_t ms)
 ;	-----------------------------------------
 ;	 function Delaynms
 ;	-----------------------------------------
@@ -514,14 +514,14 @@ _Delaynms:
 	mov	r5,dph
 	mov	r6,b
 	mov	r7,a
-;	src/delay.c:6: while (i)
+;	src/delay.c:11: while (ms)
 00101$:
 	mov	a,r4
 	orl	a,r5
 	orl	a,r6
 	orl	a,r7
 	jz	00104$
-;	src/delay.c:8: i--;
+;	src/delay.c:13: ms--;
 	dec	r4
 	cjne	r4,#0xff,00116$
 	dec	r5
@@ -530,7 +530,7 @@ _Delaynms:
 	cjne	r6,#0xff,00116$
 	dec	r7
 00116$:
-;	src/delay.c:9: Delay1ms();
+;	src/delay.c:14: Delay1ms();
 	push	ar7
 	push	ar6
 	push	ar5
@@ -542,7 +542,7 @@ _Delaynms:
 	pop	ar7
 	sjmp	00101$
 00104$:
-;	src/delay.c:12: }
+;	src/delay.c:17: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Delay1ms'
@@ -550,23 +550,23 @@ _Delaynms:
 ;i                         Allocated to registers r6 
 ;j                         Allocated to registers r7 
 ;------------------------------------------------------------
-;	src/delay.c:14: void Delay1ms(void)
+;	src/delay.c:23: void Delay1ms(void)
 ;	-----------------------------------------
 ;	 function Delay1ms
 ;	-----------------------------------------
 _Delay1ms:
-;	src/delay.c:18: NOP();
+;	src/delay.c:27: NOP();
 	nop
-;	src/delay.c:19: NOP();
+;	src/delay.c:28: NOP();
 	nop
-;	src/delay.c:24: while (--j)
+;	src/delay.c:33: while (--j)
 	mov	r7,#0x70
 	mov	r6,#0x3a
 00101$:
 	djnz	r7,00101$
-;	src/delay.c:26: } while (--i);
+;	src/delay.c:35: } while (--i);
 	djnz	r6,00101$
-;	src/delay.c:28: }
+;	src/delay.c:37: }
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)

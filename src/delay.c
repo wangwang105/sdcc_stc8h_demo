@@ -1,16 +1,25 @@
 #include "delay.h"
-
-void Delaynms(uint32_t i)
+/**
+ * @author: 王荣文
+ * @Description: delay i ms
+ * @param {uint32_t} i (ms)
+ * @return {*}
+ */
+void Delaynms(uint32_t ms)
 {
 #if MAIN_Fosc == 44236800
-    while (i)
+    while (ms)
     {
-        i--;
+        ms--;
         Delay1ms();
     }
 #endif
 }
-
+/**
+ * @author: 王荣文
+ * @Description: delay 1ms
+ * @return {*}
+ */
 void Delay1ms(void)
 {
 #if MAIN_Fosc == 44236800

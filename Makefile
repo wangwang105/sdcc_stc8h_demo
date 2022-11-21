@@ -8,6 +8,12 @@ TARGET = sdcc_stc8H
 #########################
 BUILD_DIR = build
 
+#######################
+# definition of macros
+#######################
+# 这个宏定义是为了区分在vscode上的编译环境和工作环境
+CFLAGS = -D SDCC_DEBUG
+
 ##########################
 # compiler
 ##########################
@@ -15,6 +21,7 @@ CC = sdcc
 HEX = packihx
 BIN = objcopy -I ihex -O binary 
 
+CC += $(CFLAGS)
 ##########################
 # simplify rm -rf
 ##########################

@@ -495,9 +495,9 @@
                                     495 ;------------------------------------------------------------
                                     496 ;Allocation info for local variables in function 'Delaynms'
                                     497 ;------------------------------------------------------------
-                                    498 ;i                         Allocated to registers 
+                                    498 ;ms                        Allocated to registers 
                                     499 ;------------------------------------------------------------
-                                    500 ;	src/delay.c:3: void Delaynms(uint32_t i)
+                                    500 ;	src/delay.c:8: void Delaynms(uint32_t ms)
                                     501 ;	-----------------------------------------
                                     502 ;	 function Delaynms
                                     503 ;	-----------------------------------------
@@ -514,14 +514,14 @@
       00006F AD 83            [24]  514 	mov	r5,dph
       000071 AE F0            [24]  515 	mov	r6,b
       000073 FF               [12]  516 	mov	r7,a
-                                    517 ;	src/delay.c:6: while (i)
+                                    517 ;	src/delay.c:11: while (ms)
       000074                        518 00101$:
       000074 EC               [12]  519 	mov	a,r4
       000075 4D               [12]  520 	orl	a,r5
       000076 4E               [12]  521 	orl	a,r6
       000077 4F               [12]  522 	orl	a,r7
       000078 60 22            [24]  523 	jz	00104$
-                                    524 ;	src/delay.c:8: i--;
+                                    524 ;	src/delay.c:13: ms--;
       00007A 1C               [12]  525 	dec	r4
       00007B BC FF 09         [24]  526 	cjne	r4,#0xff,00116$
       00007E 1D               [12]  527 	dec	r5
@@ -530,7 +530,7 @@
       000083 BE FF 01         [24]  530 	cjne	r6,#0xff,00116$
       000086 1F               [12]  531 	dec	r7
       000087                        532 00116$:
-                                    533 ;	src/delay.c:9: Delay1ms();
+                                    533 ;	src/delay.c:14: Delay1ms();
       000087 C0 07            [24]  534 	push	ar7
       000089 C0 06            [24]  535 	push	ar6
       00008B C0 05            [24]  536 	push	ar5
@@ -542,7 +542,7 @@
       000098 D0 07            [24]  542 	pop	ar7
       00009A 80 D8            [24]  543 	sjmp	00101$
       00009C                        544 00104$:
-                                    545 ;	src/delay.c:12: }
+                                    545 ;	src/delay.c:17: }
       00009C 22               [24]  546 	ret
                                     547 ;------------------------------------------------------------
                                     548 ;Allocation info for local variables in function 'Delay1ms'
@@ -550,23 +550,23 @@
                                     550 ;i                         Allocated to registers r6 
                                     551 ;j                         Allocated to registers r7 
                                     552 ;------------------------------------------------------------
-                                    553 ;	src/delay.c:14: void Delay1ms(void)
+                                    553 ;	src/delay.c:23: void Delay1ms(void)
                                     554 ;	-----------------------------------------
                                     555 ;	 function Delay1ms
                                     556 ;	-----------------------------------------
       00009D                        557 _Delay1ms:
-                                    558 ;	src/delay.c:18: NOP();
+                                    558 ;	src/delay.c:27: NOP();
       00009D 00               [12]  559 	nop
-                                    560 ;	src/delay.c:19: NOP();
+                                    560 ;	src/delay.c:28: NOP();
       00009E 00               [12]  561 	nop
-                                    562 ;	src/delay.c:24: while (--j)
+                                    562 ;	src/delay.c:33: while (--j)
       00009F 7F 70            [12]  563 	mov	r7,#0x70
       0000A1 7E 3A            [12]  564 	mov	r6,#0x3a
       0000A3                        565 00101$:
       0000A3 DF FE            [24]  566 	djnz	r7,00101$
-                                    567 ;	src/delay.c:26: } while (--i);
+                                    567 ;	src/delay.c:35: } while (--i);
       0000A5 DE FC            [24]  568 	djnz	r6,00101$
-                                    569 ;	src/delay.c:28: }
+                                    569 ;	src/delay.c:37: }
       0000A7 22               [24]  570 	ret
                                     571 	.area CSEG    (CODE)
                                     572 	.area CONST   (CODE)

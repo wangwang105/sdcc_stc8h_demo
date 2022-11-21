@@ -4,7 +4,8 @@
         "compiler.h": "c",
         "main.h": "c",
         "delay.h": "c",
-        "stc8h_it.h": "c"
+        "stc8h_it.h": "c",
+        "stdio.h": "c"
     },
     // "C_Cpp.errorSquiggles": "Disabled"
 

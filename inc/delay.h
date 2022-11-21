@@ -5,6 +5,6 @@
 
 
 void Delay1ms(void);
-void Delaynms(uint32_t i);
+void Delaynms(uint32_t ms);
 
 #endif
