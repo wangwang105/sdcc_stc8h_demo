@@ -1,6 +1,7 @@
 #include "main.h"
 #include "delay.h"
 #include "stc8h_it.h"
+#include "spi.h"
 
 // #define MAIN_Fosc 44236800
 void clock_Init(void);
@@ -22,7 +23,11 @@ int main()
         Delaynms(1);
     }
 }
-
+/**
+ * @author: 王荣文
+ * @Description: 时钟初始化
+ * @return {*}
+ */
 void clock_Init(void)
 {
     P_SW2 = 0x80;

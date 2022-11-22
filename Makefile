@@ -71,6 +71,10 @@ $(BUILD_DIR)/main.ihx : $(REL)
 #########################################################
 # 需要自行添加sdcc编译语句
 ########################################################
+$(BUILD_DIR)/spi.rel : src/spi.c | $(BUILD_DIR)
+		$(CC) $(parameter)  -c $^ \
+		$(INCDIR) -o "$@"
+
 $(BUILD_DIR)/delay.rel : src/delay.c | $(BUILD_DIR)
 		$(CC) $(parameter)  -c $^ \
 		$(INCDIR) -o "$@"

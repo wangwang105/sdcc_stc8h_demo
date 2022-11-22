@@ -18,5 +18,6 @@
 build/delay.rel
 build/main.rel
 build/stc8h_it.rel
+build/spi.rel
 
 -e

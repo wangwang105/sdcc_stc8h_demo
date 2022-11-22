@@ -523,7 +523,7 @@
                                     523 ;------------------------------------------------------------
                                     524 ;Allocation info for local variables in function 'main'
                                     525 ;------------------------------------------------------------
-                                    526 ;	src/main.c:9: int main()
+                                    526 ;	src/main.c:10: int main()
                                     527 ;	-----------------------------------------
                                     528 ;	 function main
                                     529 ;	-----------------------------------------
@@ -536,74 +536,74 @@
                            000002   536 	ar2 = 0x02
                            000001   537 	ar1 = 0x01
                            000000   538 	ar0 = 0x00
-                                    539 ;	src/main.c:11: clock_Init();
+                                    539 ;	src/main.c:12: clock_Init();
       0000A8 12 00 C2         [24]  540 	lcall	_clock_Init
-                                    541 ;	src/main.c:14: P0M1 = 0x00;
+                                    541 ;	src/main.c:15: P0M1 = 0x00;
       0000AB 75 93 00         [24]  542 	mov	_P0M1,#0x00
-                                    543 ;	src/main.c:15: P0M0 = 0x00;
+                                    543 ;	src/main.c:16: P0M0 = 0x00;
       0000AE 75 94 00         [24]  544 	mov	_P0M0,#0x00
-                                    545 ;	src/main.c:16: P01 = 0;
+                                    545 ;	src/main.c:17: P01 = 0;
                                     546 ;	assignBit
       0000B1 C2 81            [12]  547 	clr	_P01
-                                    548 ;	src/main.c:18: EA = 1;
+                                    548 ;	src/main.c:19: EA = 1;
                                     549 ;	assignBit
       0000B3 D2 AF            [12]  550 	setb	_EA
-                                    551 ;	src/main.c:19: while (1)
+                                    551 ;	src/main.c:20: while (1)
       0000B5                        552 00102$:
-                                    553 ;	src/main.c:21: P01 = !P01;
+                                    553 ;	src/main.c:22: P01 = !P01;
       0000B5 B2 81            [12]  554 	cpl	_P01
-                                    555 ;	src/main.c:22: Delaynms(1);
+                                    555 ;	src/main.c:23: Delaynms(1);
       0000B7 90 00 01         [24]  556 	mov	dptr,#(0x01&0x00ff)
       0000BA E4               [12]  557 	clr	a
       0000BB F5 F0            [12]  558 	mov	b,a
       0000BD 12 00 6D         [24]  559 	lcall	_Delaynms
-                                    560 ;	src/main.c:24: }
+                                    560 ;	src/main.c:25: }
       0000C0 80 F3            [24]  561 	sjmp	00102$
                                     562 ;------------------------------------------------------------
                                     563 ;Allocation info for local variables in function 'clock_Init'
                                     564 ;------------------------------------------------------------
-                                    565 ;	src/main.c:26: void clock_Init(void)
+                                    565 ;	src/main.c:31: void clock_Init(void)
                                     566 ;	-----------------------------------------
                                     567 ;	 function clock_Init
                                     568 ;	-----------------------------------------
       0000C2                        569 _clock_Init:
-                                    570 ;	src/main.c:28: P_SW2 = 0x80;
+                                    570 ;	src/main.c:33: P_SW2 = 0x80;
       0000C2 75 BA 80         [24]  571 	mov	_P_SW2,#0x80
-                                    572 ;	src/main.c:29: CLKSEL = 0x00; //选择内部IRC ( 默认 )
+                                    572 ;	src/main.c:34: CLKSEL = 0x00; //选择内部IRC ( 默认 )
       0000C5 90 FE 00         [24]  573 	mov	dptr,#0xfe00
       0000C8 E4               [12]  574 	clr	a
       0000C9 F0               [24]  575 	movx	@dptr,a
-                                    576 ;	src/main.c:30: P_SW2 = 0x00;
+                                    576 ;	src/main.c:35: P_SW2 = 0x00;
                                     577 ;	1-genFromRTrack replaced	mov	_P_SW2,#0x00
       0000CA F5 BA            [12]  578 	mov	_P_SW2,a
-                                    579 ;	src/main.c:31: }
+                                    579 ;	src/main.c:36: }
       0000CC 22               [24]  580 	ret
                                     581 ;------------------------------------------------------------
                                     582 ;Allocation info for local variables in function 'TM0_Init'
                                     583 ;------------------------------------------------------------
-                                    584 ;	src/main.c:33: void TM0_Init(void)
+                                    584 ;	src/main.c:38: void TM0_Init(void)
                                     585 ;	-----------------------------------------
                                     586 ;	 function TM0_Init
                                     587 ;	-----------------------------------------
       0000CD                        588 _TM0_Init:
-                                    589 ;	src/main.c:35: AUXR |= 0x80; //定时器0为1T模式
+                                    589 ;	src/main.c:40: AUXR |= 0x80; //定时器0为1T模式
       0000CD 43 8E 80         [24]  590 	orl	_AUXR,#0x80
-                                    591 ;	src/main.c:36: TMOD &= 0xF0; //设置定时器模式
+                                    591 ;	src/main.c:41: TMOD &= 0xF0; //设置定时器模式
       0000D0 53 89 F0         [24]  592 	anl	_TMOD,#0xf0
-                                    593 ;	src/main.c:38: TL0 = (65536 - (MAIN_Fosc / 1 / 2000)) % 256; // 200Hz
+                                    593 ;	src/main.c:43: TL0 = (65536 - (MAIN_Fosc / 1 / 2000)) % 256; // 200Hz
       0000D3 75 8A 9A         [24]  594 	mov	_TL0,#0x9a
-                                    595 ;	src/main.c:39: TH0 = (65536 - (MAIN_Fosc / 1 / 2000)) / 256; // 200Hz
+                                    595 ;	src/main.c:44: TH0 = (65536 - (MAIN_Fosc / 1 / 2000)) / 256; // 200Hz
       0000D6 75 8C A9         [24]  596 	mov	_TH0,#0xa9
-                                    597 ;	src/main.c:40: TR0 = 1;                                      //定时器0开始计时
+                                    597 ;	src/main.c:45: TR0 = 1;                                      //定时器0开始计时
                                     598 ;	assignBit
       0000D9 D2 8C            [12]  599 	setb	_TR0
-                                    600 ;	src/main.c:41: ET0 = 1;                                      //使能定时器0中断
+                                    600 ;	src/main.c:46: ET0 = 1;                                      //使能定时器0中断
                                     601 ;	assignBit
       0000DB D2 A9            [12]  602 	setb	_ET0
-                                    603 ;	src/main.c:42: EA = 1;
+                                    603 ;	src/main.c:47: EA = 1;
                                     604 ;	assignBit
       0000DD D2 AF            [12]  605 	setb	_EA
-                                    606 ;	src/main.c:43: }
+                                    606 ;	src/main.c:48: }
       0000DF 22               [24]  607 	ret
                                     608 	.area CSEG    (CODE)
                                     609 	.area CONST   (CODE)

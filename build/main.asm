@@ -523,7 +523,7 @@ __sdcc_program_startup:
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;	src/main.c:9: int main()
+;	src/main.c:10: int main()
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
@@ -536,74 +536,74 @@ _main:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-;	src/main.c:11: clock_Init();
+;	src/main.c:12: clock_Init();
 	lcall	_clock_Init
-;	src/main.c:14: P0M1 = 0x00;
+;	src/main.c:15: P0M1 = 0x00;
 	mov	_P0M1,#0x00
-;	src/main.c:15: P0M0 = 0x00;
+;	src/main.c:16: P0M0 = 0x00;
 	mov	_P0M0,#0x00
-;	src/main.c:16: P01 = 0;
+;	src/main.c:17: P01 = 0;
 ;	assignBit
 	clr	_P01
-;	src/main.c:18: EA = 1;
+;	src/main.c:19: EA = 1;
 ;	assignBit
 	setb	_EA
-;	src/main.c:19: while (1)
+;	src/main.c:20: while (1)
 00102$:
-;	src/main.c:21: P01 = !P01;
+;	src/main.c:22: P01 = !P01;
 	cpl	_P01
-;	src/main.c:22: Delaynms(1);
+;	src/main.c:23: Delaynms(1);
 	mov	dptr,#(0x01&0x00ff)
 	clr	a
 	mov	b,a
 	lcall	_Delaynms
-;	src/main.c:24: }
+;	src/main.c:25: }
 	sjmp	00102$
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'clock_Init'
 ;------------------------------------------------------------
-;	src/main.c:26: void clock_Init(void)
+;	src/main.c:31: void clock_Init(void)
 ;	-----------------------------------------
 ;	 function clock_Init
 ;	-----------------------------------------
 _clock_Init:
-;	src/main.c:28: P_SW2 = 0x80;
+;	src/main.c:33: P_SW2 = 0x80;
 	mov	_P_SW2,#0x80
-;	src/main.c:29: CLKSEL = 0x00; //选择内部IRC ( 默认 )
+;	src/main.c:34: CLKSEL = 0x00; //选择内部IRC ( 默认 )
 	mov	dptr,#0xfe00
 	clr	a
 	movx	@dptr,a
-;	src/main.c:30: P_SW2 = 0x00;
+;	src/main.c:35: P_SW2 = 0x00;
 ;	1-genFromRTrack replaced	mov	_P_SW2,#0x00
 	mov	_P_SW2,a
-;	src/main.c:31: }
+;	src/main.c:36: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'TM0_Init'
 ;------------------------------------------------------------
-;	src/main.c:33: void TM0_Init(void)
+;	src/main.c:38: void TM0_Init(void)
 ;	-----------------------------------------
 ;	 function TM0_Init
 ;	-----------------------------------------
 _TM0_Init:
-;	src/main.c:35: AUXR |= 0x80; //定时器0为1T模式
+;	src/main.c:40: AUXR |= 0x80; //定时器0为1T模式
 	orl	_AUXR,#0x80
-;	src/main.c:36: TMOD &= 0xF0; //设置定时器模式
+;	src/main.c:41: TMOD &= 0xF0; //设置定时器模式
 	anl	_TMOD,#0xf0
-;	src/main.c:38: TL0 = (65536 - (MAIN_Fosc / 1 / 2000)) % 256; // 200Hz
+;	src/main.c:43: TL0 = (65536 - (MAIN_Fosc / 1 / 2000)) % 256; // 200Hz
 	mov	_TL0,#0x9a
-;	src/main.c:39: TH0 = (65536 - (MAIN_Fosc / 1 / 2000)) / 256; // 200Hz
+;	src/main.c:44: TH0 = (65536 - (MAIN_Fosc / 1 / 2000)) / 256; // 200Hz
 	mov	_TH0,#0xa9
-;	src/main.c:40: TR0 = 1;                                      //定时器0开始计时
+;	src/main.c:45: TR0 = 1;                                      //定时器0开始计时
 ;	assignBit
 	setb	_TR0
-;	src/main.c:41: ET0 = 1;                                      //使能定时器0中断
+;	src/main.c:46: ET0 = 1;                                      //使能定时器0中断
 ;	assignBit
 	setb	_ET0
-;	src/main.c:42: EA = 1;
+;	src/main.c:47: EA = 1;
 ;	assignBit
 	setb	_EA
-;	src/main.c:43: }
+;	src/main.c:48: }
 	ret
 	.area CSEG    (CODE)
 	.area CONST   (CODE)

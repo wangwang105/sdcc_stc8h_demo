@@ -1,19 +1,22 @@
 {
-  "configurations": [
-    {
-      "name": "C51",
-      "includePath": [
-        "${workspaceFolder}/**",
-        "${workspaceFolder}",
-        "D:\\APPData\\SDCC\\include",
-        "D:\\APPData\\SDCC\\include\\mcs51"
-      ],
-      "defines": ["_DEBUG", "UNICODE", "_UNICODE"],
-      "compilerPath": "D:\\APPData\\SDCC\\bin\\sdcc.exe",
-      "cStandard": "c17",
-      "cppStandard": "c++17",
-      "configurationProvider": "ms-vscode.makefile-tools"
-    }
-  ],
-  "version": 4
+    "configurations": [
+        {
+            "name": "C51",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "D:\\APPData\\SDCC\\include",
+                "D:\\APPData\\SDCC\\include\\mcs51"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "compilerPath": "D:\\APPData\\SDCC\\bin\\sdcc.exe",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "configurationProvider": "ms-vscode.makefile-tools"
+        }
+    ],
+    "version": 4
 }
